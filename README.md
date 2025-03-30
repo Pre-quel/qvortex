@@ -50,4 +50,4 @@ Stat. Tests (Iterations: 1000, Data Size: 1024) ---
     
     BLAKE2b: 447.97 MB/s
     Digest = 3e4983d2b746d6522648d1659f0e8eb4a063315bf1eb22b29b50dd947eaae1e83b7afbf81f4d0a931df2e977d7d1c2f37b3329f2a28bf6042525f1c59f03942f
-    ```
+
