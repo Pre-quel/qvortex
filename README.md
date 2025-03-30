@@ -8,6 +8,8 @@ chmod +x build_qvortex.sh
 python qvortex.py
 ```
 
+### Minimal Benchmarking
+
 ```
 =====================================================
  Qvortex Benchmark Results
