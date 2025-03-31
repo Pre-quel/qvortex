@@ -147,7 +147,7 @@ class QvortexHash:
             key: Optional key for keyed hashing (overrides the one set in constructor)
         
         Returns:
-            bytes: 32-byte Qvortex hash digest
+            bytes: 64-byte Qvortex hash digest
         
         Raises:
             QvortexError: If hashing fails
@@ -163,8 +163,8 @@ class QvortexHash:
         data_len = len(data)
         data_buf = (c_uint8 * data_len)(*data)
         
-        # Prepare output buffer (32 bytes)
-        out_buf = (c_uint8 * 32)()
+        # Prepare output buffer (64 bytes)
+        out_buf = (c_uint8 * 64)()
         
         # Prepare key buffer if needed
         key_ptr = None
@@ -248,7 +248,7 @@ class QvortexHash:
         
         def digest(self):
             """Finalize and return the digest"""
-            out_buf = (c_uint8 * 32)()
+            out_buf = (c_uint8 * 64)()
             
             result = self.qvortex.lib.qvortex_final(
                 self.ctx,
@@ -285,7 +285,7 @@ def hash(data, key=None):
         key: Optional key for keyed hashing
     
     Returns:
-        bytes: 32-byte Qvortex hash digest
+        bytes: 64-byte Qvortex hash digest
     
     Raises:
         QvortexError: If the library is not available or hashing fails
