@@ -37,7 +37,7 @@
  #define QVORTEX_LITE_STATE_WORDS 8
  #define QVORTEX_LITE_BLOCK_BYTES 64
  #define QVORTEX_LITE_ROUNDS 2
- #define QVORTEX_LITE_DIGEST_BYTES 32  /* Change to 32 bytes (256-bit) output */
+ #define QVORTEX_LITE_DIGEST_BYTES 64
  
  /* Fixed rotation constants */
  #define QL_R1 32
@@ -565,7 +565,7 @@
   * @param use_precomputed Legacy parameter (not used in Qvortex)
   * @param key             Optional key for keyed hashing
   * @param key_len         Length of key
-  * @param out             Output buffer (32 bytes)
+  * @param out             Output buffer (64 bytes)
   *
   * @return 0 on success, non-zero on error
   */
@@ -624,7 +624,7 @@
   * Finalize a Qvortex context and output the digest
   * 
   * @param ctx Pointer to context structure
-  * @param out Output buffer (32 bytes)
+  * @param out Output buffer (64 bytes)
   * 
   * @return 0 on success, non-zero on error
   */
@@ -654,7 +654,7 @@
  int vortex_hash(const uint8_t *data, size_t len,
                 int blocks_per_sbox, int use_precomputed,
                 const uint8_t *key, size_t key_len,
-                uint8_t out[32]) {
+                uint8_t out[64]) {
    return qvortex_hash(data, len, blocks_per_sbox, use_precomputed, key, key_len, out);
  }
  
